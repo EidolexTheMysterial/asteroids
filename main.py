@@ -47,14 +47,14 @@ def start_game():
         updatable.update(dt)
 
         for ast in asteroids:
+            # if ast.is_colliding(player):
+            #     print("Game over!")
+            #     GO = False
+
             for st in shots:
                 if st.is_colliding(ast):
-                    ast.kill()
                     st.kill()
-
-            if ast.is_colliding(player):
-                print("Game over!")
-                GO = False
+                    ast.split()
 
         for ast in drawable:
             ast.draw(screen)
